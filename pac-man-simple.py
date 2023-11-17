@@ -49,7 +49,6 @@ def color_array(arr, color, *lst, **kwargs):
     indices = np.arange(arr.size).reshape(arr.shape)
     kwargs["formatter"] = {"int": color_formatter}
     return np.array2string(indices, **kwargs)
-############################################################################################################################
 
 #####################################################################################################################
 #                                                                                                                   #
@@ -77,10 +76,10 @@ def checkAccessible(obstacles_map, state):
             if  not obstacles_map[i-18]:
                 adj_matrix[i][i-18] = 1
 
-    dist_matrix = dijkstra(csgraph=adj_matrix, directed=False, indices=state[0]) # Find shortest path from Pac-man to every other non-obstacle node.
+    dist_matrix = dijkstra(csgraph=adj_matrix, directed=False, indices=state[0])     # Find shortest path from Pac-man to every other non-obstacle node.
     if (dist_matrix[food_indices] == np.inf).nonzero()[0].size != 0: return (False,) #[1] Check whether Pac-man can reach every food node.
-    return (True, adj_matrix)                                                     #[2] If the output is True, there is no need to check the other agents,
-    #                                                                             #[3] as they also lie on a food node.
+    return (True, adj_matrix)                                                        #[2] If the output is True, there is no need to check the other agents,
+    #                                                                                #[3] as they also lie on a food node.
     
 
 

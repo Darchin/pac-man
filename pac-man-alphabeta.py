@@ -249,7 +249,7 @@ def checkLose(state):
 ##########################################################################
 def minimax(state, agent, depth, alpha=-99999999, beta=99999999):
     # Check if 'end of tree' is reached at this state and evaluate said state if True
-    if checkLose(state) or checkWin(state) or depth == 6:
+    if checkLose(state) or checkWin(state) or depth == 9:
         return (evaluationFunction(state),)
 
     # If it's Pac-man's turn, maximize eval score.
